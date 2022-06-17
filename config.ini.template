@@ -1,0 +1,23 @@
+[DEFAULTS]
+updatetime = 30
+savetime = 300
+savefile = save.json
+intent.members = yes
+intent.presences = yes
+mode = MODE1
+messageid = 0
+
+[MODE1]
+token = DISCORD_TOKEN
+main_chat = ChatID
+guild = GuildID
+matixbot_chat = ChatID
+app = league of legends
+
+[MODE2]
+token = DISCORD_TOKEN
+main_chat = ChatID
+guild = GuildID
+matixbot_chat = ChatID
+app = spotify
+
