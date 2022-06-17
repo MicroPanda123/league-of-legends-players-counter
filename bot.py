@@ -45,20 +45,20 @@ async def on_ready():
     lack_of_sex.start()
     mb_chat = client.get_channel(matixbot_chat)
 
-    global lolembedmessage
-    lolembedmessage = defaults.get('messageid', 0)
-    if int(lolembedmessage) == 0:
-        lolembedmessage = await mb_chat.send(embed=create_embed())
-        config.set('DEFAULTS', 'messageid', str(lolembedmessage.id))
+    global embed_message
+    embed_message = defaults.get('messageid', 0)
+    if int(embed_message) == 0:
+        embed_message = await mb_chat.send(embed=create_embed())
+        config.set('DEFAULTS', 'messageid', str(embed_message.id))
         with open('config.ini', 'w') as cf:
             config.write(cf)
     else:
-        lolembedmessage = await mb_chat.fetch_message(lolembedmessage)
+        embed_message = await mb_chat.fetch_message(embed_message)
 
 @tasks.loop(seconds=1)
 async def lack_of_sex():
     global counter 
-    global lolembedmessage
+    global embed_message
 
     counter += 1
     gildia = client.get_guild(guild)
@@ -70,7 +70,7 @@ async def lack_of_sex():
                         players[str(member.id)] = players[str(member.id)] + 1 if str(member.id) in players else 1
 
     if counter%update_time == 0:
-        await lolembedmessage.edit(embed=create_embed())
+        await embed_message.edit(embed=create_embed())
     if counter%save_time == 0:
         with open(save_file, 'w') as f:
             json.dump(players, f)
