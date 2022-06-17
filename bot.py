@@ -67,7 +67,7 @@ async def lack_of_sex():
             for activity in member.activities:
                 with contextlib.suppress(AttributeError):
                     if app in activity.name.lower():
-                        players[str(member.id)] += 1 if str(member.id) in players else 1
+                        players[str(member.id)] = players[str(member.id)] + 1 if str(member.id) in players else 1
 
     if counter%update_time == 0:
         await lolembedmessage.edit(embed=create_embed())
