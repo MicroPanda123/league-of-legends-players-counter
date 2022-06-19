@@ -66,7 +66,6 @@ async def lack_of_sex():
         if member.activities:
             for activity in member.activities:
                 with contextlib.suppress(AttributeError):
-                    print(activity.name.lower())
                     if app == activity.name.lower():
                         players[str(member.id)] = players[str(member.id)] + 1 if str(member.id) in players else 1
 
