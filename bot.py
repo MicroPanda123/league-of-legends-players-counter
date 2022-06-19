@@ -90,7 +90,7 @@ def create_embed(mx = 10):
     for loser in lista:
         # print(loser[0])
         member = client.get_user(int(loser[0]))
-        embed.add_field(name = f'{index}: {member}', value = f'{int(loser[1]/60/60/24)} {time.strftime("%H:%M:%S", time.gmtime(loser[1]))}', inline=False)
+        embed.add_field(name = f'{index}: {member}', value = f'{int(loser[1]/60/60/24)}d {time.strftime("%H:%M:%S", time.gmtime(loser[1]))}', inline=False)
         if index >= mx:
             break
         else:
